@@ -1,0 +1,69 @@
+name: SAST - Semgrep CE
+
+on:
+  # Analiza cada Pull Request dirigido a main
+  pull_request:
+    branches:
+      - main
+      - master
+
+  # Analiza también cuando algo entra directamente en main
+  push:
+    branches:
+      - main
+      - master
+
+  # Permite lanzar el análisis manualmente desde GitHub
+  workflow_dispatch:
+
+  # Análisis completo semanal
+  schedule:
+    - cron: "17 4 * * 1"
+
+permissions:
+  contents: read
+  security-events: write
+
+jobs:
+  semgrep:
+    name: Semgrep SAST
+    runs-on: ubuntu-latest
+
+    container:
+      image: semgrep/semgrep
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Show Semgrep version
+        run: semgrep --version
+
+      - name: Run Semgrep Community Edition
+        continue-on-error: true
+        run: |
+          semgrep scan \
+            --config auto \
+            --text-output semgrep-results.txt \
+            --json-output semgrep-results.json \
+            .
+
+      - name: Show Semgrep results
+        if: always()
+        run: |
+          echo "===== SEMGREP RESULTS ====="
+          cat semgrep-results.txt || true
+
+      - name: Upload Semgrep evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: semgrep-results-${{ github.run_id }}
+          path: |
+            semgrep-results.txt
+            semgrep-results.json
+          retention-days: 90
+          if-no-files-found: warn

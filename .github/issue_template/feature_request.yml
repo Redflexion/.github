@@ -1,0 +1,41 @@
+name: "🚀 Petición de Funcionalidad (Feature Request)"
+description: Sugerir una nueva característica, mejora o caso de uso.
+title: "[FEAT]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Gracias por proponer una mejora. Diseña la propuesta pensando en valor de negocio, viabilidad técnica e impacto en la seguridad del proyecto.
+  - type: textarea
+    id: problem
+    attributes:
+      label: "¿Qué problema o necesidad resuelve?"
+      description: Describe de forma concisa la situación actual que motiva esta petición.
+      placeholder: "Actualmente los usuarios no pueden..."
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: "Solución propuesta"
+      description: Explica cómo debería funcionar la nueva funcionalidad.
+      placeholder: "Proponemos añadir un endpoint / componente que permita..."
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: "Alternativas consideradas"
+      description: ¿Se han evaluado otras opciones o soluciones provisionales?
+      placeholder: "Se contempló hacer X, pero se descartó por..."
+  - type: checkboxes
+    id: security_impact
+    attributes:
+      label: "Impacto en Seguridad y Datos (ENS / ISO 27001)"
+      description: Selecciona las consideraciones aplicables a este cambio.
+      options:
+        - label: "Maneja datos personales o sensibles (PII / RGPD)."
+        - label: "Requiere nuevos permisos o roles en la gestión de accesos."
+        - label: "Se integra con APIs o servicios de terceros ajenos a la organización."
+        - label: "No altera el modelo de amenazas actual del sistema."

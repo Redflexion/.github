@@ -1,0 +1,30 @@
+name: "🐛 Reporte de Bug"
+description: Notificar un error o comportamiento anómalo en la aplicación.
+title: "[BUG]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: Gracias por reportar el error. Asegúrate de que no haya información sensible o contraseñas en las capturas o trazas.
+  - type: textarea
+    id: description
+    attributes:
+      label: Descripción del problema
+      placeholder: Explica qué sucede y qué esperabas que sucediese.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Pasos para reproducirlo
+      placeholder: |
+        1. Ir a '...'
+        2. Hacer click en '...'
+        3. Ver error '...'
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Trazas o Logs relevantes
+      render: shell
