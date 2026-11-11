@@ -3,7 +3,8 @@
 <p align="left">
   <img src="https://img.shields.io/badge/Security-ENS%20Nivel%20Alto-0A4E8B?style=for-the-badge&logo=shield" alt="ENS Alto" />
   <img src="https://img.shields.io/badge/Compliance-ISO%2027001-green?style=for-the-badge&logo=checkmarx" alt="ISO 27001" />
-  <img src="https://img.shields.io/badge/Focus-Data%20%7C%20AI%20%7C%20Automation-orange?style=for-the-badge" alt="Data & AI" />
+  <img src="https://img.shields.io/badge/Quality-ISO%209001-007EC6?style=for-the-badge" alt="ISO 9001" />
+  <img src="https://img.shields.io/badge/Focus-Data%20%7C%20AI%20%7C%20Automation%20%7C%20Cybersecurity-orange?style=for-the-badge" alt="Data, AI, Automation & Cybersecurity" />
 </p>
 
 Somos la división de **Datos, Inteligencia Artificial y Ciberseguridad** de [Redflexión Consultores](https://redflexion.com). Diseñamos e implementamos arquitecturas analíticas, automatizaciones de procesos y modelos avanzados a medida bajo los estándares más exigentes de seguridad de la información.
